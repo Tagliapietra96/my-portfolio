@@ -65,6 +65,7 @@ export default {
 span {
     filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, .3));
     -webkit-filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, .3));
+    cursor: default;
 }
 
 .cursor {
