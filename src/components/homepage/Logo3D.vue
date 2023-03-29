@@ -20,14 +20,18 @@ export default {
 
 <style lang="scss" scoped>
 .box-3d {
+    cursor: pointer;
     transform-style: preserve-3d;
     filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, 0.5));
     width: 170px;
     padding-top: 100px;
     margin-bottom: 100px;
-    transition: filter .7s ease-out;
+    transition: filter .7s ease-out, transform .2s ease-out;
     &:hover{
         filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, 0.9)); 
+    }
+    &:active{
+        transform: scale(0.01) !important;
     }
 }
 
@@ -45,7 +49,6 @@ export default {
 }
 @media screen and (min-width: 850px) {
     .box-3d {
-        width: 600px;
         padding-top: 50px;
         margin-bottom: 30px;
     }
