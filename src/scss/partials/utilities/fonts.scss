@@ -1,5 +1,9 @@
 @use '../variables/variables.scss';
 
+.very-big-text{
+  font-size: $very-big;
+}
+
 .big-text{
   font-size: $big;
 }
@@ -18,4 +22,8 @@
 
 .primary2-text{
     color: $primary2;
+}
+
+.secondary2-text{
+    color: $secondary2;
 }

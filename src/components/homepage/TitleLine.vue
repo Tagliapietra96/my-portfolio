@@ -1,7 +1,7 @@
 <template>
     <p class="big-text bolder light-text text-center text-lg-start">
         <span v-for="letter in string"
-        :class="(letter !== ' ') ? 'active' : ''">
+        :class="{'active' : (letter !== ' ')}">
             {{ letter }}
         </span>
     </p>
@@ -16,9 +16,6 @@ export default {
         string() {
             return this.data.split('');
         }
-    },
-    mounted() {
-        console.log(this.string);
     },
 }
 </script>
