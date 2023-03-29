@@ -1,0 +1,10 @@
+@use '../variables/variables.scss';
+
+.big-container{
+    min-height: calc(100vh);
+    width: 100%;
+}
+.full-container{
+    min-height: 100vh;
+    width: 100%;
+}

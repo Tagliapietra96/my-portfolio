@@ -1,0 +1,5 @@
+@use '../variables/variables.scss';
+
+.banner{
+    background: linear-gradient(-250deg, $light 33.33%, $primary 33.33%, $primary 66.66%, $secondary 66.66%);
+}
