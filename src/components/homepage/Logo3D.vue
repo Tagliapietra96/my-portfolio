@@ -20,6 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 .box-3d {
+    cursor: pointer;
     transform-style: preserve-3d;
     filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, 0.5));
     width: 170px;
