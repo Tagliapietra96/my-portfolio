@@ -45,7 +45,6 @@ export default {
 }
 @media screen and (min-width: 850px) {
     .box-3d {
-        width: 600px;
         padding-top: 50px;
         margin-bottom: 30px;
     }
