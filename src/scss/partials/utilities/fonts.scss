@@ -1,0 +1,21 @@
+@use '../variables/variables.scss';
+
+.big-text{
+  font-size: $big;
+}
+
+.bolder{
+    font-weight: bolder;
+}
+
+.dark-text{
+    color: $dark;
+}
+
+.light-text{
+    color: $light;
+}
+
+.primary2-text{
+    color: $primary2;
+}
