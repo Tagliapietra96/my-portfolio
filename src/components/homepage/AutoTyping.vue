@@ -20,33 +20,33 @@ export default {
         }
     },
     methods: {
-        typeText(){
-            if(this.charIndex < this.words[this.wordIndex].length){
-                if(!this.status){
+        typeText() {
+            if (this.charIndex < this.words[this.wordIndex].length) {
+                if (!this.status) {
                     this.status = true;
                 }
-               
+
                 this.string += this.words[this.wordIndex].charAt(this.charIndex);
                 this.charIndex++;
                 setTimeout(this.typeText, this.typingSpeed);
-            }else{
+            } else {
                 this.status = false;
                 setTimeout(this.eraseText, this.newTextDelay);
             }
         },
-        eraseText(){
-            if(this.charIndex > 0){
-                if(!this.status){
+        eraseText() {
+            if (this.charIndex > 0) {
+                if (!this.status) {
                     this.status = true;
                 }
-               
+
                 this.string = this.words[this.wordIndex].substring(0, this.charIndex - 1);
                 this.charIndex--;
                 setTimeout(this.eraseText, this.erasingSpeed);
-            }else{
+            } else {
                 this.status = false;
                 this.wordIndex++;
-                if(this.wordIndex >= this.words.length){
+                if (this.wordIndex >= this.words.length) {
                     this.wordIndex = 0;
                 }
                 setTimeout(this.typeText, this.newTextDelay);
@@ -61,9 +61,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../scss/partials/variables/colors.scss';
-span{
+
+span {
     filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, .3));
-        -webkit-filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, .3));
+    -webkit-filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, .3));
 }
 
 .cursor {
