@@ -1,12 +1,30 @@
 <template>
     <div class=" w-100 d-flex justify-content-center">
-        <img src="logo.svg" alt="my-personal-logo" class="box-3d">
+        <img src="logo.svg" alt="my-personal-logo" 
+        class="box-3d" 
+        :class="{'active' : active, 'd-none' : !visible}"
+        @click="onLogoClick()">
     </div>
 </template>
 
 <script>
 import VanillaTilt from 'vanilla-tilt';
 export default {
+    props: {
+        active: Boolean
+    },
+    data() {
+        return {
+            visible: true,
+        }
+    },
+    methods: {
+        onLogoClick(){
+            setTimeout(()=>{
+                this.visible = false;
+            }, 500);
+        }
+    },
     mounted() {
         VanillaTilt.init(document.querySelector(".box-3d"), {
             max: 40,
@@ -26,12 +44,12 @@ export default {
     width: 170px;
     padding-top: 100px;
     margin-bottom: 100px;
-    transition: filter .7s ease-out, transform .2s ease-out;
+    transition: filter .7s ease-out, transform .4s ease-out;
     &:hover{
         filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, 0.9)); 
     }
-    &:active{
-        transform: scale(0.01) !important;
+    &.active{
+        transform: scale(0.0001) !important;
     }
 }
 
