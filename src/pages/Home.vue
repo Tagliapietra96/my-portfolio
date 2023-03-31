@@ -3,17 +3,19 @@
         <Loader v-if="store.dt.bool.loading"/>
         <div v-else class="page">
             <MainBanner/>
+            <AppHeader/>
     
         </div>
     </Transition>
 </template>
 
 <script>
+import AppHeader from '../components/general/AppHeader.vue';
 import Loader from '../components/general/Loader.vue';
 import MainBanner from '../components/homepage/MainBanner.vue';
 import { store } from '../stores/main-store';
 export default {
-    components: { MainBanner, Loader },
+    components: { MainBanner, Loader, AppHeader },
     data() {
         return {
             store

@@ -21,12 +21,14 @@ export default {
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: 99999999999999;
 
     img {
         transform-style: preserve-3d;
         filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, 0.5));
         -webkit-filter: drop-shadow(0px 10px 25px rgba(255, 255, 255, 0.5));
         animation: logoAnimation 5.5s forwards;
+       
     }
 }
 @keyframes logoAnimation{
