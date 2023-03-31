@@ -11,7 +11,7 @@ export default {
         return {
             string: '',
             status: false,
-            words: ['Human', 'Web Developer', 'Creator'],
+            words: ['Human', 'Web Developer', 'Creator', 'Innovator', 'Problem Solver'],
             typingSpeed: 150,
             erasingSpeed: 100,
             newTextDelay: 2000,
