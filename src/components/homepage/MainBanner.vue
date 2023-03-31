@@ -1,18 +1,18 @@
 <template>
-  <div class="full-container banner" 
-  :style="status ? color : ''"
-  >
-    <div class="container-fluid">
-        <div class="row h-100 align-items-center justify-content-center">
-            <div class="col-12 col-lg-5 col-xl-6">
-                <Logo3D :active="status" @click="bannerChange()"/>
-            </div>
-            <div class="col-12 col-lg-7 col-xl-6">
-                <TitleContainer/>
+    <div class="full-container banner" :style="status ? color : ''" :class="{ 'active': status }">
+        <div class="container-fluid">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-lg-5 col-xl-6">
+                    <Logo3D :active="status" @click="bannerChange()" />
+                </div>
+                <div class="col-12 col-lg-7 col-xl-6">
+                    <Transition name="slide-fade">
+                        <TitleContainer v-if="!status" />
+                    </Transition>
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -28,8 +28,8 @@ export default {
         }
     },
     methods: {
-        bannerChange(){
-            if(this.light < 100){
+        bannerChange() {
+            if (this.light < 100) {
                 this.status = true;
                 this.light += .6;
                 setTimeout(this.bannerChange, 1);
@@ -37,7 +37,7 @@ export default {
         },
     },
     computed: {
-        color(){
+        color() {
             let color = `background: linear-gradient(-215deg, #faebac ${this.light}%, #f97745 33.33%, #f97745 66.66%, #24474c 66.66%);`
             return color
         }
@@ -46,9 +46,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (min-width: 992px) {
-    .container-fluid{
-        height: 100vh;
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition: all .4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(20px), scale(.5);
+    opacity: 0;
+}
+
+.full-container {
+    transition: height .5s 3s, min-height .5s 3s, max-height .5s 3s;
+
+    &.active {
+        min-height: 0 !important;
+        max-height: 0 !important;
+        height: 0 !important;
     }
+}
+
+@media screen and (min-width: 992px) {
+    .full-container {
+        .container-fluid {
+            height: 100vh;
+            transition: height .5s 3s, min-height .5s 3s, max-height .5s 3s;
+        }
+
+        &.active {
+            .container-fluid {
+                height: 0;
+            }
+        }
+    }
+
+
+
 }
 </style>
