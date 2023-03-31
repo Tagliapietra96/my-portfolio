@@ -1,4 +1,5 @@
 import { reactive } from 'vue';
 export const bool = reactive({
-    loading: Boolean
+    loading: Boolean,
+    homaPageAnimation: Boolean
 });

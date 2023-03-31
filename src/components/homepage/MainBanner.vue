@@ -1,9 +1,12 @@
 <template>
-    <div class="full-container banner" :style="status ? color : ''" :class="{ 'active': status }">
-        <div class="container-fluid">
+    <div class="full-container banner" 
+    :style="status ? color : ''" 
+    :class="{ 'active': status }">
+        <AnimatedLogo v-if="store.dt.bool.homaPageAnimation"/>
+        <div v-else class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center">
                 <div class="col-12 col-lg-5 col-xl-6">
-                    <Logo3D :active="status" @click="bannerChange()" />
+                    <Logo3D :active="status" @click="onLogoClick()" />
                 </div>
                 <div class="col-12 col-lg-7 col-xl-6">
                     <Transition name="slide-fade">
@@ -17,14 +20,16 @@
 
 <script>
 import { store } from '../../stores/main-store';
+import AnimatedLogo from './AnimatedLogo.vue';
 import Logo3D from './Logo3D.vue';
 import TitleContainer from './TitleContainer.vue';
 export default {
-    components: { Logo3D, TitleContainer },
+    components: { Logo3D, TitleContainer, AnimatedLogo },
     data() {
         return {
             status: false,
             light: 33.33,
+            store
         }
     },
     methods: {
@@ -35,6 +40,10 @@ export default {
                 setTimeout(this.bannerChange, 1);
             }
         },
+        onLogoClick(){
+            store.fn.loading.startHomeAnimation();
+            this.bannerChange();
+        }
     },
     computed: {
         color() {
@@ -58,7 +67,7 @@ export default {
 }
 
 .full-container {
-    transition: height .5s 3s, min-height .5s 3s, max-height .5s 3s;
+    transition: height .5s 5s, min-height .5s 5s, max-height .5s 5s;
 
     &.active {
         min-height: 0 !important;
@@ -71,7 +80,7 @@ export default {
     .full-container {
         .container-fluid {
             height: 100vh;
-            transition: height .5s 3s, min-height .5s 3s, max-height .5s 3s;
+            transition: height .5s 5s, min-height .5s 5s, max-height .5s 5s;
         }
 
         &.active {
