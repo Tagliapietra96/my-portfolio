@@ -2,9 +2,11 @@
     <Transition name="fade" mode="out-in">
         <Loader v-if="store.dt.bool.loading"/>
         <div v-else class="page">
-            <MainBanner/>
-            <AppHeader/>
-    
+            <Transition name="fade" mode="out-in">
+                <MainBanner v-if="store.dt.bool.animatedLogoVisibility"/>
+                <AppHeader v-else/>
+            </Transition>
+            
         </div>
     </Transition>
 </template>
