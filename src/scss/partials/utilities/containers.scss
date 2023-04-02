@@ -1,7 +1,7 @@
 @use '../variables/variables.scss';
 
 .big-container{
-    min-height: calc(100vh);
+    min-height: calc(100vh - $headerHeight);
     width: 100%;
 }
 .full-container{

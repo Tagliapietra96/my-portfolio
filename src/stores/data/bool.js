@@ -4,4 +4,5 @@ export const bool = reactive({
     homaPageAnimation: Boolean,
     headerVisibility: Boolean,
     animatedLogoVisibility: Boolean,
+    hamburegerOpen: Boolean,
 });

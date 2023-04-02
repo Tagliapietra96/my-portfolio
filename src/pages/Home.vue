@@ -1,12 +1,14 @@
 <template>
     <Transition name="fade" mode="out-in">
         <Loader v-if="store.dt.bool.loading"/>
-        <div v-else class="page">
-            <Transition name="fade" mode="out-in">
+        <div v-else class="init">
+            <Transition name="fade">
                 <MainBanner v-if="store.dt.bool.animatedLogoVisibility"/>
-                <AppHeader v-else/>
+                <div  v-else class="page">
+                    <AppHeader/>
+                    
+                </div>
             </Transition>
-            
         </div>
     </Transition>
 </template>
