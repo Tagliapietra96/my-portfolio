@@ -133,10 +133,6 @@ header {
             *:not(img) {
                 display: none;
             }
-
-            .hamburger {
-                display: block;
-            }
         }
     }
 
